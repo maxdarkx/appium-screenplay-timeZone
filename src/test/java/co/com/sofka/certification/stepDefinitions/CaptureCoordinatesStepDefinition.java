@@ -9,8 +9,10 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import net.serenitybdd.screenplay.ensure.Ensure;
 
 import static co.com.sofka.certification.exceptions.CoordinateQueryException.MSG_COORD_EXCEPTION;
+import static co.com.sofka.certification.tasks.CheckGPS.verifyGpsStatus;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.setTheStage;
 import static org.hamcrest.Matchers.equalTo;
@@ -28,14 +30,14 @@ public class CaptureCoordinatesStepDefinition {
     @When("Request the coordinates")
     public void requestTheCoordinates() {
         actor.attemptsTo(
-                RequestCoordinates.current()
+                RequestCoordinates.current(),
+                verifyGpsStatus()
         );
     }
     @Then("The system displays latitude and longitude of the current location")
     public void theSystemDisplaysLatitudeAndLongitudeOfTheCurrentLocation() {
-       actor.should(
-               seeThat(AreCoordinatesPresent.isCorrect(),equalTo(true))
-                       .orComplainWith(CoordinateQueryException.class, MSG_COORD_EXCEPTION)
+       actor.attemptsTo(
+                       Ensure.that(AreCoordinatesPresent.isCorrect()).isTrue()
        );
     }
 }
