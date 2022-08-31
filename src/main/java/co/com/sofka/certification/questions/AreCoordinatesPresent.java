@@ -1,9 +1,11 @@
 package co.com.sofka.certification.questions;
 
+import static co.com.sofka.certification.userinterfaces.CoordinatesUI.BUTTON_SEND;
+import static co.com.sofka.certification.userinterfaces.CoordinatesUI.INPUT_LATITUDE;
+import static co.com.sofka.certification.userinterfaces.CoordinatesUI.INPUT_LONGITUDE;
+
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
-
-import static co.com.sofka.certification.userinterfaces.CoordinatesUI.*;
 
 public class AreCoordinatesPresent implements Question<Boolean> {
 
