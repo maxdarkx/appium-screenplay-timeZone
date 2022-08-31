@@ -1,21 +1,20 @@
 package co.com.sofka.certification.tasks;
 
-import static co.com.sofka.certification.userinterfaces.CoordinatesUI.BUTTON_CONSULT_COORDINATES;
+import static co.com.sofka.certification.userinterfaces.CoordinatesUI.BUTTON_SEND;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 
-public class RequestCoordinates implements Task {
+public class SendCoordinates implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Click.on(BUTTON_CONSULT_COORDINATES)
+                Click.on(BUTTON_SEND)
         );
     }
 
-    public static RequestCoordinates current()
-    {
-        return new RequestCoordinates();
+    public static SendCoordinates pressSendCoordinates() {
+        return new SendCoordinates();
     }
 }

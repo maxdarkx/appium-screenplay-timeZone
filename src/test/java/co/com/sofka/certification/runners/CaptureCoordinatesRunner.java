@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features = "src/test/resources/features/CaptureCoordinates.feature",
         glue = "co.com.sofka.certification.stepDefinitions",
-        snippets = CucumberOptions.SnippetType.CAMELCASE)
+        snippets = CucumberOptions.SnippetType.CAMELCASE
+)
 
-
-public class CaptureAreCoordinatesPresentRunner {
+public class CaptureCoordinatesRunner {
 }
